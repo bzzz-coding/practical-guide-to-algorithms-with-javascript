@@ -15,6 +15,7 @@ const cache = {};
 
 const memoTimes10 = (n) => {
   if (n in cache) return cache[n]
+  console.log(`not in cache, calculating result...`)
   let result = times10(n)
   cache[n] = result
   return result

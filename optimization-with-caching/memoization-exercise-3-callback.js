@@ -3,7 +3,17 @@ const times10 = (n) => (n * 10);
 
 // protip: Take advantage of the fact that parameters are saved in the closure as well, just like the cache from the previous example.
 const memoize = (cb) => {
-
+  const cache = {}
+  return (n) => {
+    if (!cache[n]) {
+      console.log(`not in cache, calculating result...`)
+      let result = cb(n)
+      cache[n] = result
+      return result
+    }
+    console.log(`in cache, fetching value...`)
+    return cache[n]
+  }
 }
 
 // returned function from memoizedAdd

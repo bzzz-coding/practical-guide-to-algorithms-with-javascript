@@ -4,13 +4,17 @@
 const memoizedClosureTimes10 = () => {
   const cache = {};
 
+  // return a definition of a function, not invocked 
   return (n) => {
-    if (!cache[n]) cache[n] = n * 10
+    if (!cache[n]) {
+      console.log(`not in cache, calculating result...`)
+      cache[n] = n * 10
+    }
     return cache[n] 
   }
 };
 
-const memoClosureTimes10 = memoizedClosureTimes10(); 
+const memoClosureTimes10 = memoizedClosureTimes10();  // memoizing the return in memoClosureTimes10
 /*
 memoClosureTimes10 will save what memoizedClosureTimes10() returns, which is 
 (n) => {
@@ -32,10 +36,13 @@ because of how scope works, we still have reference to variables declared in the
 console.log('~~~~~~~~~~~~~~TASK 3~~~~~~~~~~~~~~');
 try {
   console.log('Task 3 calculated value:', memoClosureTimes10(9));	// calculated
+  // when invoking memoClosureTimes10(9) again, the memoized (return definition) function gets reinitialized, but the cache from the parent function stays the same
   console.log('Task 3 cached value:', memoClosureTimes10(9));	// cached
 } catch(e) {
   console.error('Task 3:', e);
 }
+
+
 
 
 // Another reason is that we can call memoizedClosureTimes10 again to have more than one cache, see example at the bottom
