@@ -15,8 +15,7 @@ function minChange1(total, values, count) { // [1, 6, 10]
   return Math.min(...possibleRemainders.map(remainder => minChange(remainder, values, count)))
 }
 
-
-
+// add count on the way back
 function minChange2(total, values) { // [1, 6, 10]
   if (total === 0) {
     return 0
@@ -32,6 +31,7 @@ function minChange2(total, values) { // [1, 6, 10]
   return 1 + Math.min(...possibleRemainders.map(remainder => minChange(remainder, values)))
 }
 
+// set Infinity to -total, intead of filtering values
 function minChange(total, values) { // [1, 6, 10]
   if (total < 0) {
     return Infinity
