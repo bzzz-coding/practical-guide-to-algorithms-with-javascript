@@ -67,3 +67,5 @@ console.log(memoClosureTimes5(10))
 console.log(memoClosureTimes5(10))
 console.log(memoClosureTimes100(10))
 console.log(memoClosureTimes100(10))
+
+// console.log(memoizedClosureTimesM(5)(10));
